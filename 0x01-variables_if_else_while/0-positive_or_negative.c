@@ -1,30 +1,29 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
- 
 /**
-*main - assign a random number to the variable n each time it is executed
-*and prints out based on condition
-*Return: Always 0 (Success)
+*main - writes 00 - 99
+*Decription: Writes all unique combinations
+*Return: zero for success
 */
-
 int main(void)
 {
-        int n;
- 
-        srand(time(0));
-        n = rand() - RAND_MAX / 2;
-        if (n > 0)
-        {
-        printf("%d is %s\n", n, "positive");
-        }
-        else if (n < 0)
-        {
-        printf("%d is %s\n", n, "negative");
-        }
-        else
-        {
-        printf("%d is %s\n", n, "zero");
-        }
-        return (0);
+	int i, j;
+
+	for (i = '0'; i <= '9'; i++)
+	{
+		for (j = '0'; j <= '9'; j++)
+		{
+			if ((i < j) & (j <= '9'))
+			{
+				putchar(i);
+				putchar(j);
+				if ((j < '9') | (i < '8'))
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
+	}
+	putchar('\n');
+	return (0);
 }
